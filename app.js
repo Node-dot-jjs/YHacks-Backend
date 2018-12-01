@@ -12,6 +12,6 @@ const db = require('./api/util/postgres');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/api', routes(db));
+app.use('/', routes(db));
 
 app.listen(port, () => console.log(`Express started on port ${port}`));

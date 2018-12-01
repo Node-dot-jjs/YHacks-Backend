@@ -1,10 +1,10 @@
 const express = require('express');
-//const userRoutes = require('./user');
+const clientRoutes = require('./client');
 
 const routes = function Routes(db) {
     const router = express.Router();
 
-    // router.use('/users', userRoutes(db));
+    router.use('/client', clientRoutes(db));
 
     router.get('/', (req, res) => {
         res.send({'success': true, 'message': 'API'});
