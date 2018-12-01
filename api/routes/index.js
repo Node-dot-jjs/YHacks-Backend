@@ -4,7 +4,7 @@ const clientRoutes = require('./client');
 const routes = function Routes(db) {
     const router = express.Router();
 
-    router.use('/client', clientRoutes(db));
+    router.use('/clients', clientRoutes(db));
 
     router.get('/', (req, res) => {
         res.send({'success': true, 'message': 'API'});

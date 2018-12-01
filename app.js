@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const routes = require('./api/routes');
-const port = 80;
+const port = 8080;
 
 dotenv.config();
 
