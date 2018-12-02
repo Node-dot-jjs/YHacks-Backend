@@ -22,7 +22,7 @@ const user = function User(db) {
     });
 
     router.get('/:id/devices', (req, res) => {
-        db.any('SELECT id, client_id, threshold, gps_lat, gps_long FROM device WHERE client_id=${id}', {id: req.params.id}).then(devices => {
+        db.any('SELECT id, name, client_id, threshold, gps_lat, gps_long FROM device WHERE client_id=${id}', {id: req.params.id}).then(devices => {
             res.send({'success': true, 'devices': devices});
         })
     });

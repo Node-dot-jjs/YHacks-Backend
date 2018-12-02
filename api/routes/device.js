@@ -4,7 +4,7 @@ const device = function Device(db) {
     const router = express.Router();
 
     router.get('/', (req, res) => {
-        db.any('SELECT id, client_id, threshold, gps_lat, gps_long FROM device').then(data => {
+        db.any('SELECT id, name, client_id, threshold, gps_lat, gps_long FROM device').then(data => {
             res.send({'success': true, 'devices': data});
         });
     });
