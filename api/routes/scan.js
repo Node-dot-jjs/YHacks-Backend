@@ -4,6 +4,7 @@ const scan = function Scan(db) {
     const router = express.Router();
 
     router.post('/', (req, res) => {
+        console.log('Incoming scan POST');
         db.one('SELECT * FROM device WHERE id=${id}', {id: req.body.device_id}).then(device => {
             if (device.api_key === req.body.api_key) {
                 db.one('INSERT INTO scan (device, data) VALUES (${device}, ${data}) RETURNING (id, timestamp)', {
