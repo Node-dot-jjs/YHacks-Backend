@@ -9,6 +9,12 @@ const user = function User(db) {
         });
     });
 
+    router.get('/findClient/:name', (req, res) => {
+        db.one('SELECT * FROM client WHERE LOWER(name)=LOWER(${name})', {name: req.params.name}).then(client => {
+            res.send({'success': true, 'client': client});
+        })
+    });
+
     router.get('/:id', (req, res) => {
         db.one('SELECT * FROM client WHERE id=${id}', {id: req.params.id}).then(client => {
             res.send({'success': true, 'client': client});
