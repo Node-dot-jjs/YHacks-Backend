@@ -9,8 +9,8 @@ const device = function Device(db) {
         });
     });
 
-    router.get('/lastscan', (req, res) => {
-       db.one('SELECT * FROM scan ORDER BY id DESC LIMIT 1').then(scan => {
+    router.get('/:id/lastscan', (req, res) => {
+       db.one('SELECT * FROM scan WHERE device = ${id} ORDER BY id DESC LIMIT 1', {id: req.params.id}).then(scan => {
            res.send({success: true, scan: scan});
        }).catch(err => {
            res.send({success: false, message: 'No recent scans'});

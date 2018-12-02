@@ -8,7 +8,7 @@ const routes = function Routes(db) {
 
     router.use('/clients', clientRoutes(db));
     router.use('/scans', scanRoutes(db));
-    router.use('/device', deviceRoutes(db));
+    router.use('/devices', deviceRoutes(db));
 
     router.get('/', (req, res) => {
         res.send({'success': true, 'message': 'API'});
